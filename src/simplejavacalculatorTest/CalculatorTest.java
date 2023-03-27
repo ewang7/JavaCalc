@@ -2,6 +2,7 @@ package simplejavacalculatorTest;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import simplejavacalculator.Calculator;
 import static java.lang.Double.NaN;
 import java.lang.Math;
 
@@ -115,5 +116,4 @@ class CalculatorTest {
 		Assertions.assertEquals(3.0, calculator.calculateMono(Calculator.MonoOperatorModes.abs, -3.0));
 		Assertions.assertEquals(3.0, calculator.calculateMono(Calculator.MonoOperatorModes.abs, 3.0));
 	}
-
 }

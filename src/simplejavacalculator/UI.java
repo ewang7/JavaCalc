@@ -14,6 +14,9 @@
  * @modweb      http://www.achinthagunasekara.com
  * @modemail    contact@achinthagunasekara.com
  * @modemail    kchantza@csd.auth.gr
+ *
+ * @furtherModifiedBy: Christopher, Eric,& Lukasz
+ * for COMP312/412 at LUC Spring 2023
  */
 
 package simplejavacalculator;
@@ -51,7 +54,7 @@ public class UI implements ActionListener {
    private final JTextArea text;
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary;
+      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butPI, butGam;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -105,8 +108,9 @@ public class UI implements ActionListener {
       butrate = new JButton("x%");      
       butabs = new JButton("abs(x)");      
       butCancel = new JButton("C");      
-      butBinary = new JButton("Bin");      
-      
+      butBinary = new JButton("Bin");
+      butPI = new JButton("π (deg)");
+      butGam = new JButton("Approx. Γ (Gamma)");
       calc = new Calculator();
       
    }
@@ -170,9 +174,10 @@ public class UI implements ActionListener {
       panelSub4.add(butCancel);
       panel.add(panelSub4);
       
-      panelSub5.add(Box.createHorizontalStrut(92));
+      panelSub5.add(Box.createHorizontalStrut(100));
       panelSub5.add(but[0]);
-      panelSub5.add(Box.createHorizontalStrut(210));
+      panelSub5.add(Box.createHorizontalStrut(100)); // was 210 width
+      panelSub5.add(butGam);
       panel.add(panelSub5);
       
       panelSub6.add(butSquare);
@@ -184,6 +189,7 @@ public class UI implements ActionListener {
       panelSub7.add(butCos);
       panelSub7.add(butSin);
       panelSub7.add(butTan);
+      panelSub7.add(butPI);
       panel.add(panelSub7);
       
       panelSub8.add(butlog);
@@ -213,6 +219,8 @@ public class UI implements ActionListener {
       
       butEqual.addActionListener(this);
       butCancel.addActionListener(this);
+      butPI.addActionListener(this);
+      butGam.addActionListener(this);
       
       frame.add(panel);
       frame.setVisible(true);
@@ -234,6 +242,29 @@ public class UI implements ActionListener {
          checkNum = Double.parseDouble(text.getText());
       } catch(NumberFormatException k) {
 
+      }
+
+      if (source == butPI) {
+         text.replaceSelection("180");
+         return;
+      }
+
+      if (source == butGam) {
+         int input;
+         double output;
+         try {
+            input = Integer.parseInt(text.getText());
+            if (input > 0) {//Stirling's Approximation for calculators by Nemes (2007) for Gamma Function from Wikipedia
+               output = Math.sqrt(2*Math.PI/input)*Math.pow(((1/Math.E)*(input+1/((12*input)-(1/(10*(double)input))))),input);
+               text.setText(String.valueOf(output));
+            }
+            else {
+               text.setText("Integer Input Must be > 0");
+            }
+         } catch(NumberFormatException k) {
+
+         }
+         return;
       }
 
       if (checkNum != null || source == butCancel) {
