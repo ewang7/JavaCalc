@@ -231,8 +231,19 @@ public class UI implements ActionListener {
       final Object source = e.getSource();
       Double checkNum = null;
 
-      for (int i = 0; i < 10; i++) {
-         if (source == but[i]) {
+      if (source == but[0]) {
+         try {
+            checkNum = Double.valueOf(text.getText() + ".0");
+         } catch (NullPointerException n) {
+
+         }
+         if (checkNum != null) {
+            text.replaceSelection(buttonValue[0]);
+         }
+      }
+
+      for (int i = 1; i < 10; i++) {
+         if (source == but[i]) { // i = 1 thru 9
             text.replaceSelection(buttonValue[i]);
             return;
          }
