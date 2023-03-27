@@ -144,7 +144,9 @@ public class UI implements ActionListener {
       butrate.setFont(font);
       butabs.setFont(font);
       butCancel.setFont(font);
-      butBinary.setFont(font); 
+      butBinary.setFont(font);
+      butPI.setFont(font);
+      butGam.setFont(font);
       
       panel.add(Box.createHorizontalStrut(100));
       panelSub1.add(text);
@@ -176,7 +178,7 @@ public class UI implements ActionListener {
       
       panelSub5.add(Box.createHorizontalStrut(100));
       panelSub5.add(but[0]);
-      panelSub5.add(Box.createHorizontalStrut(100)); // was 210 width
+      panelSub5.add(Box.createHorizontalStrut(25)); // was 210 width
       panelSub5.add(butGam);
       panel.add(panelSub5);
       
@@ -256,7 +258,7 @@ public class UI implements ActionListener {
       }
 
       if (source == butPI) {
-         text.replaceSelection("180");
+         text.setText("180");
          return;
       }
 
