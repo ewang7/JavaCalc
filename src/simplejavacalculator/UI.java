@@ -53,7 +53,7 @@ public class UI implements ActionListener {
    
    private final JTextArea text;
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
-      butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
+      butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy, butCubed,
       butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butPI, butGam;
    private final Calculator calc;
    
@@ -111,6 +111,7 @@ public class UI implements ActionListener {
       butBinary = new JButton("Bin");
       butPI = new JButton("π (deg)");
       butGam = new JButton("Approx. Γ (Gamma)");
+      butCubed = new JButton("x^3"); // Someone can commit-push & work on
       calc = new Calculator();
       
    }
@@ -348,6 +349,10 @@ public class UI implements ActionListener {
    
    private void parsetoBinary() {
       try {
+         if (text.getText().contains(".")) {
+            text.selectAll();
+            text.setText(text.getText().substring(0,text.getText().indexOf(46)));
+         }
          text.setText("" + Long.toBinaryString(Long.parseLong(text.getText())));
       } catch (NumberFormatException ex) {
          System.err.println("Error while parse to binary." + ex.toString());
