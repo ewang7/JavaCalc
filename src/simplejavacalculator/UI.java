@@ -54,7 +54,7 @@ public class UI implements ActionListener {
    private final JTextArea text;
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butPI, butGam;
+      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butPI, butGam, butxCubed;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -103,7 +103,7 @@ public class UI implements ActionListener {
       butCos = new JButton("Cos");      
       butSin = new JButton("Sin");      
       butTan = new JButton("Tan");      
-      butxpowerofy = new JButton("x^y");      
+      butxpowerofy = new JButton("x^y");
       butlog = new JButton("log10(x)");      
       butrate = new JButton("x%");      
       butabs = new JButton("abs(x)");      
@@ -111,6 +111,7 @@ public class UI implements ActionListener {
       butBinary = new JButton("Bin");
       butPI = new JButton("π (deg)");
       butGam = new JButton("Approx. Γ (Gamma)");
+      butxCubed = new JButton("x^3");
       calc = new Calculator();
       
    }
@@ -147,6 +148,7 @@ public class UI implements ActionListener {
       butBinary.setFont(font);
       butPI.setFont(font);
       butGam.setFont(font);
+      butxCubed.setFont(font);
       
       panel.add(Box.createHorizontalStrut(100));
       panelSub1.add(text);
@@ -176,9 +178,9 @@ public class UI implements ActionListener {
       panelSub4.add(butCancel);
       panel.add(panelSub4);
       
-      panelSub5.add(Box.createHorizontalStrut(100));
+      //panelSub5.add(Box.createHorizontalStrut(100));
       panelSub5.add(but[0]);
-      panelSub5.add(Box.createHorizontalStrut(25)); // was 210 width
+      //panelSub5.add(Box.createHorizontalStrut(25)); // was 210 width
       panelSub5.add(butGam);
       panel.add(panelSub5);
       
@@ -186,6 +188,7 @@ public class UI implements ActionListener {
       panelSub6.add(butSquareRoot);
       panelSub6.add(butOneDividedBy);
       panelSub6.add(butxpowerofy);
+      panelSub6.add(butxCubed);
       panel.add(panelSub6);
       
       panelSub7.add(butCos);
@@ -223,6 +226,7 @@ public class UI implements ActionListener {
       butCancel.addActionListener(this);
       butPI.addActionListener(this);
       butGam.addActionListener(this);
+      butxCubed.addActionListener(this);
       
       frame.add(panel);
       frame.setVisible(true);
@@ -303,6 +307,10 @@ public class UI implements ActionListener {
          
          if (source == butxpowerofy) {
             writer(calc.calculateBi(Calculator.BiOperatorModes.xpowerofy, reader()));
+         }
+
+         if (source == butxCubed) {
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.xCubed, reader()));
          }
 
          if (source == butSquare) {
