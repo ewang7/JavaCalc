@@ -54,7 +54,7 @@ public class UI implements ActionListener {
    private final JTextArea text;
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butPI, butGam, butxCubed;
+      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butPI, butGam, butxCubed, butln;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -112,6 +112,7 @@ public class UI implements ActionListener {
       butPI = new JButton("π (deg)");
       butGam = new JButton("Approx. Γ (Gamma)");
       butxCubed = new JButton("x^3");
+      butln = new JButton("ln(x)");
       calc = new Calculator();
       
    }
@@ -196,7 +197,8 @@ public class UI implements ActionListener {
       panelSub7.add(butTan);
       panelSub7.add(butPI);
       panel.add(panelSub7);
-      
+
+      panelSub8.add(butln);
       panelSub8.add(butlog);
       panelSub8.add(butrate);
       panelSub8.add(butabs);
@@ -227,6 +229,7 @@ public class UI implements ActionListener {
       butPI.addActionListener(this);
       butGam.addActionListener(this);
       butxCubed.addActionListener(this);
+      butln.addActionListener(this);
       
       frame.add(panel);
       frame.setVisible(true);
@@ -334,6 +337,9 @@ public class UI implements ActionListener {
 
          if (source == butlog)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.log, reader()));
+
+         if (source == butln)
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.ln, reader()));
 
          if (source == butrate)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.rate, reader()));
