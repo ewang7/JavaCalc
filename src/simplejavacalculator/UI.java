@@ -244,7 +244,7 @@ public class UI implements ActionListener {
 
          }
          if (checkNum != null) {
-            text.replaceSelection(buttonValue[0]);
+            text.append(buttonValue[0]); //zero-bug fix with append
          }
       }
 
