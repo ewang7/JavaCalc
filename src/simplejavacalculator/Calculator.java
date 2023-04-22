@@ -23,7 +23,7 @@ public class Calculator {
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs
+        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs, xCubed
     }
 
     private Double num1, num2;
@@ -117,6 +117,9 @@ public class Calculator {
         }
         if (newMode == MonoOperatorModes.abs){
             return Math.abs(num);
+        }
+        if (newMode == MonoOperatorModes.xCubed) {
+            return (num * num * num);
         }
 
         // never reach

@@ -116,4 +116,10 @@ class CalculatorTest {
 		Assertions.assertEquals(3.0, calculator.calculateMono(Calculator.MonoOperatorModes.abs, -3.0));
 		Assertions.assertEquals(3.0, calculator.calculateMono(Calculator.MonoOperatorModes.abs, 3.0));
 	}
+
+	@Test
+	void CalculateMonoXCubedTest() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(27.0, calculator.calculateMono(Calculator.MonoOperatorModes.xCubed, 3.0));
+	}
 }
