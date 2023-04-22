@@ -243,8 +243,8 @@ public class UI implements ActionListener {
          } catch (NullPointerException n) {
 
          }
-         if (checkNum != null) {
-            text.append(buttonValue[0]); //zero-bug fix with append
+         if (checkNum != null && !(text.getText().equals("0"))) { // Repeat Zero-btn bug fixed with 2nd condition
+            text.append(buttonValue[0]); //zero-btn bug that prevents more than 1 zero in a number fixed with append
          }
       }
 
