@@ -122,4 +122,10 @@ class CalculatorTest {
 		Calculator calculator = new Calculator();
 		Assertions.assertEquals(27.0, calculator.calculateMono(Calculator.MonoOperatorModes.xCubed, 3.0));
 	}
+
+	@Test
+	void CalculateMonoLnTest() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(1, calculator.calculateMono(Calculator.MonoOperatorModes.ln, Math.E));
+	}
 }
