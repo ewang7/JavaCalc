@@ -118,7 +118,7 @@ public class UI implements ActionListener {
    }
    
    public void init() {      
-      frame.setSize(450, 450);
+      frame.setSize(460, 450); //width was 450 before font change
       frame.setLocationRelativeTo(null); 
       frame.setResizable(false);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -150,6 +150,7 @@ public class UI implements ActionListener {
       butPI.setFont(font);
       butGam.setFont(font);
       butxCubed.setFont(font);
+      butln.setFont(font);
       
       panel.add(Box.createHorizontalStrut(100));
       panelSub1.add(text);
