@@ -50,6 +50,6 @@ Pierre-Henry Soria: pierrehs [AT] hotmail [D0T] com
 Achintha Gunasekara: contact [AT] achinthagunasekara [D0T] com
 
 
-## ⚖️ License
+## ⚖️ (Permissive) License
 
 Apache License, Version 2.0 or later; Read **[license.txt](./license.txt)** for further details.

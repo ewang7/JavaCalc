@@ -1,0 +1,10 @@
+Specific Changes Made:
+1) Fixed zero button bug
+2) added approx. Gamma functionality from Nemes 2008
+3) added PI (trig.) functionality
+4) added x^3 functionality
+5) reviewed & modified automated tests
+6) modified UI
+
+Incomplete/Contemplated Changes:
+1) Calculator overhaul with parentheses implementation via recursion
